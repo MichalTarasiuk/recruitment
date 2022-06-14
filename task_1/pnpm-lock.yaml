@@ -5,6 +5,7 @@ specifiers:
   '@types/node': 17.0.42
   '@types/react': 18.0.12
   '@types/react-dom': 18.0.5
+  camelcase: ^7.0.0
   eslint: 8.17.0
   eslint-config-next: 12.1.6
   eslint-plugin-react-hooks: ^4.5.0
@@ -12,11 +13,14 @@ specifiers:
   react: 18.1.0
   react-dom: 18.1.0
   typescript: 4.7.3
+  zod: ^3.17.3
 
 dependencies:
+  camelcase: 7.0.0
   next: 12.1.6_ef5jwxihqo6n7gxfmzogljlgcm
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
+  zod: 3.17.3
 
 devDependencies:
   '@typeofweb/eslint-plugin': 0.3.0_ud6rd4xtew5bv4yhvkvu24pzm4
@@ -564,6 +568,11 @@ packages:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
     engines: {node: '>=6'}
     dev: true
+
+  /camelcase/7.0.0:
+    resolution: {integrity: sha512-JToIvOmz6nhGsUhAYScbo2d6Py5wojjNfoxoc2mEVLUdJ70gJK2gnd+ABY1Tc3sVMyK7QDPtN0T/XdlCQWITyQ==}
+    engines: {node: '>=14.16'}
+    dev: false
 
   /caniuse-lite/1.0.30001352:
     resolution: {integrity: sha512-GUgH8w6YergqPQDGWhJGt8GDRnY0L/iJVQcU3eJ46GYf52R8tk0Wxp0PymuFVZboJYXGiCqwozAYZNRjVj6IcA==}
@@ -2339,3 +2348,7 @@ packages:
   /yallist/4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
     dev: true
+
+  /zod/3.17.3:
+    resolution: {integrity: sha512-4oKP5zvG6GGbMlqBkI5FESOAweldEhSOZ6LI6cG+JzUT7ofj1ZOC0PJudpQOpT1iqOFpYYtX5Pw0+o403y4bcg==}
+    dev: false
