@@ -1,7 +1,7 @@
-import type { AppProps } from "next/app";
+import type { AppProps } from 'next/app'
 
 function AppRoot({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return <Component {...pageProps} />
 }
 
-export default AppRoot;
+export default AppRoot
