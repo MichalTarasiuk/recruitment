@@ -1,4 +1,5 @@
-import { createFetcher, camelCaseObject } from 'src/common/utils/utils'
+import { camelCaseObject } from 'src/common/utils/utils'
+import { createFetcher } from 'src/logic/createFetcher.logic'
 
 import { swapi } from './swapiStorage.constant'
 import { charactersSchema } from './swapiStorage.helpers'
