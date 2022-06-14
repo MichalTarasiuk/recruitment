@@ -56,4 +56,6 @@ After that memoization we receive zero benefits, so lets remove counter dependen
 
 But it does't work, because function has the same closure between rerenders. We can avoid this problem by passing callback to `setCounter`.
 
+**solution:**
+
 <img src="./images/image5.png"  width="450">
