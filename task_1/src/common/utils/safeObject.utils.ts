@@ -1,3 +1,5 @@
+import type { PlainObject } from 'src/typings/global'
+
 export const entries = <TObject extends Record<PropertyKey, unknown>>(
   obj: TObject
 ) =>

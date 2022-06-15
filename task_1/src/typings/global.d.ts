@@ -1,7 +1,5 @@
 type PlainObject = Record<PropertyKey, unknown>
 
-type PlainFunction = (...args: readonly any[]) => unknown
-
 type CamelCase<S extends string> = S extends Lowercase<S>
   ? S extends `${infer F}_${infer RF}${infer R}`
     ? `${F}${Uppercase<RF>}${CamelCase<R>}`
@@ -14,6 +12,8 @@ type CamelCaseObject<TObject extends PlainObject> = {
     : Key]: TObject[Key]
 }
 
-type FalsyValues = false | 0 | '' | null | undefined
-
-type Nill = null | undefined
+export type AddKey<
+  TObject extends PlainObject,
+  TKey extends PropertyKey,
+  TValue extends unknown
+> = TObject & Record<TKey, TValue>

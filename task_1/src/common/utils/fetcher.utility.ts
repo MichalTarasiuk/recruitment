@@ -1,3 +1,5 @@
+import type { PlainObject } from 'src/typings/global'
+
 const FALLBACK_MESSAGE = 'Something went wrong. Please try again later.'
 
 export const fetcher = async <TData extends PlainObject>(
