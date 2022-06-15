@@ -24,17 +24,21 @@ export const HomePage = ({
 export const getServerSideProps = async ({
   query,
 }: GetServerSidePropsContext) => {
-  const pageNumber = isString(query.page) ? query.page : '1'
-  const { characters, previous, next } = await fetchCharacters(pageNumber)
+  try {
+    const pageNumber = isString(query.page) ? query.page : '1'
+    const { characters, previous, next } = await fetchCharacters(pageNumber)
 
-  const paginationQueries = mapObject({ previous, next }, (key, value) =>
-    value ? [key, getSearchParam(value, 'page')] : [key, value]
-  )
+    const paginationQueries = mapObject({ previous, next }, (key, value) =>
+      value ? [key, getSearchParam(value, 'page')] : [key, value]
+    )
 
-  return {
-    props: {
-      characters,
-      paginationQueries,
-    },
+    return {
+      props: {
+        characters,
+        paginationQueries,
+      },
+    }
+  } catch {
+    return { notFound: true }
   }
 }
