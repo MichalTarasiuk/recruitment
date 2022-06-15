@@ -18,7 +18,7 @@ export const Pagination = ({ paginationQueries }: Props) => {
   const router = useRouter()
   const { status } = useRouteChange()
 
-  const routeIsChanging = status === 'pending'
+  const routeIsChanging = status === 'loading'
 
   const handleClick = useCallback(
     (event: MouseEvent) => {

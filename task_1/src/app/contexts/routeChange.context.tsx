@@ -9,11 +9,14 @@ type Props = {
   readonly children: ReactNode
 }
 
-type Status = 'idle' | 'pending'
-
-const [RouteChangeProviderImpl, useRouteChange] = createSafeContext<{
+type ContextValue = {
   readonly status: Status
-}>('routeChange')
+}
+
+type Status = 'idle' | 'loading'
+
+const [RouteChangeProviderImpl, useRouteChange] =
+  createSafeContext<ContextValue>('routeChange')
 
 const RouteChangeProvider = ({ children }: Props) => {
   const [status, setStatus] = useState<Status>('idle')
@@ -21,7 +24,7 @@ const RouteChangeProvider = ({ children }: Props) => {
 
   useMount(() => {
     const onStart = () => {
-      setStatus('pending')
+      setStatus('loading')
     }
     const onComplete = () => {
       setStatus('idle')

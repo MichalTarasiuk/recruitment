@@ -25,18 +25,21 @@ export const getServerSideProps = async ({
   query,
 }: GetServerSidePropsContext) => {
   try {
-    const pageNumber = isString(query.page) ? query.page : '1'
-    const { characters, previous, next } = await fetchCharacters(pageNumber)
+    if (isString(query.page)) {
+      const { characters, previous, next } = await fetchCharacters(query.page)
 
-    const paginationQueries = mapObject({ previous, next }, (key, value) =>
-      value ? [key, getSearchParam(value, 'page')] : [key, value]
-    )
+      const paginationQueries = mapObject({ previous, next }, (key, value) =>
+        value ? [key, getSearchParam(value, 'page')] : [key, value]
+      )
 
-    return {
-      props: {
-        characters,
-        paginationQueries,
-      },
+      return {
+        props: {
+          characters,
+          paginationQueries,
+        },
+      }
+    } else {
+      throw Error('Invalid page')
     }
   } catch {
     return { notFound: true }

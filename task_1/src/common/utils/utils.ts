@@ -1,7 +1,6 @@
 export { camelCaseObject } from './camelCaseObject.utility'
 export { isString } from './type.utils'
 export { fetcher } from './fetcher.utility'
-export { getSearchParam } from './getQueryValue'
 export {
   entries,
   fromEntries,
@@ -15,3 +14,9 @@ export const uppercaseFirst = (value: string) =>
 export const compactArray = <TArray extends ReadonlyArray<unknown>>(
   array: TArray
 ) => array.filter(Boolean) as unknown as TArray
+
+export const getSearchParam = (url: string, key: string) => {
+  const urlSearchParams = new URLSearchParams(url.split('?')[1])
+
+  return urlSearchParams.get(key)
+}

@@ -21,11 +21,9 @@ export const DetailedCharacterPage = (character: Props) => {
 export const getServerSideProps = async ({
   query,
 }: GetServerSidePropsContext) => {
-  const id = query.id
-
   try {
-    if (id && isString(id)) {
-      const character = await fetchCharacter(id)
+    if (query.id && isString(query.id)) {
+      const character = await fetchCharacter(query.id)
 
       return {
         props: {
