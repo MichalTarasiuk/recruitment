@@ -1,0 +1,142 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 debug pnpm:package-manifest": {
+    "initial": {
+      "devDependencies": {
+        "cypress": "^8.5.0"
+      },
+      "dependencies": {
+        "next": "^12.0.4",
+        "nprogress": "^0.2.0",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+      }
+    },
+    "prefix": "/Users/michaltarasiuk"
+  },
+  "2 debug pnpm:context": {
+    "currentLockfileExists": true,
+    "storeDir": "/Users/michaltarasiuk/Library/pnpm/store/v3",
+    "virtualStoreDir": "/Users/michaltarasiuk/node_modules/.pnpm"
+  },
+  "3 debug pnpm:stage": {
+    "prefix": "/Users/michaltarasiuk",
+    "stage": "resolution_started"
+  },
+  "4 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/cypress/8.7.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "cypress",
+      "rawSpec": "^8.5.0"
+    }
+  },
+  "5 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/next/12.1.6",
+    "wanted": {
+      "dependentId": ".",
+      "name": "next",
+      "rawSpec": "^12.0.4"
+    }
+  },
+  "6 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/nprogress/0.2.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "nprogress",
+      "rawSpec": "^0.2.0"
+    }
+  },
+  "7 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/react/17.0.2",
+    "wanted": {
+      "dependentId": ".",
+      "name": "react",
+      "rawSpec": "^17.0.2"
+    }
+  },
+  "8 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/react-dom/17.0.2",
+    "wanted": {
+      "dependentId": ".",
+      "name": "react-dom",
+      "rawSpec": "^17.0.2"
+    }
+  },
+  "9 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/nprogress/0.2.0",
+    "requester": "/Users/michaltarasiuk",
+    "status": "found_in_store"
+  },
+  "10 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/nprogress/0.2.0",
+    "requester": "/Users/michaltarasiuk",
+    "status": "resolved"
+  },
+  "11 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/react/17.0.2",
+    "requester": "/Users/michaltarasiuk",
+    "status": "found_in_store"
+  },
+  "12 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/react/17.0.2",
+    "requester": "/Users/michaltarasiuk",
+    "status": "resolved"
+  },
+  "13 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/cypress/8.7.0",
+    "requester": "/Users/michaltarasiuk",
+    "status": "found_in_store"
+  },
+  "14 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/cypress/8.7.0",
+    "requester": "/Users/michaltarasiuk",
+    "status": "resolved"
+  },
+  "15 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/next/12.1.6",
+    "requester": "/Users/michaltarasiuk",
+    "status": "found_in_store"
+  },
+  "16 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/next/12.1.6",
+    "requester": "/Users/michaltarasiuk",
+    "status": "resolved"
+  },
+  "17 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/react-dom/17.0.2",
+    "requester": "/Users/michaltarasiuk",
+    "status": "found_in_store"
+  },
+  "18 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/react-dom/17.0.2",
+    "requester": "/Users/michaltarasiuk",
+    "status": "resolved"
+  },
+  "19 error pnpm": {
+    "code": "ERR_PNPM_FETCH_404",
+    "hint": "@types/npprogress is not in the npm registry, or you have no permission to fetch it.\n\nAn authorization header was used: Bearer npm_[hidden]",
+    "request": {
+      "authHeaderValue": "Bearer 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",
+      "url": "https://registry.npmjs.org/@types%2Fnpprogress"
+    },
+    "response": {
+      "size": 0
+    },
+    "pkgName": "@types/npprogress",
+    "spec": {
+      "fetchSpec": "latest",
+      "name": "@types/npprogress",
+      "type": "tag"
+    },
+    "pkgsStack": [],
+    "err": {
+      "name": "pnpm",
+      "message": "GET https://registry.npmjs.org/@types%2Fnpprogress: Not Found - 404",
+      "code": "ERR_PNPM_FETCH_404",
+      "stack": "pnpm: GET https://registry.npmjs.org/@types%2Fnpprogress: Not Found - 404\n    at RetryOperation._fn (/usr/local/lib/node_modules/pnpm/dist/pnpm.cjs:84412:19)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    }
+  }
+}
