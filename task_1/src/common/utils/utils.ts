@@ -7,3 +7,6 @@ export const uppercaseFirst = (value: string) =>
 
 export const compactArray = <TItem>(array: readonly TItem[]) =>
   array.filter(Boolean) as unknown as readonly Exclude<TItem, FalsyValues>[]
+
+export const exclude = <TItem>(array: readonly TItem[], itemToExclude: TItem) =>
+  array.filter((item) => item !== itemToExclude)
