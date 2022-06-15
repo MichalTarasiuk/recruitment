@@ -1,7 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 
+import { reducer as favoriteCharactersReducer } from './favoriteCharacters.slice'
+
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    favoriteCharacters: favoriteCharactersReducer,
+  },
 })
 
 export type RootState = ReturnType<typeof store.getState>
