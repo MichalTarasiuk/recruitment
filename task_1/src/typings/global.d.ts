@@ -15,3 +15,5 @@ type CamelCaseObject<TObject extends PlainObject> = {
 }
 
 type FalsyValues = false | 0 | '' | null | undefined
+
+type Nill = null | undefined
