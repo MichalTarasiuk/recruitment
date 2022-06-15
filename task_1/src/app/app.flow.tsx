@@ -1,3 +1,4 @@
+import { AppProvider } from 'src/app/app.provider'
 import { RootLayout } from 'src/app/layouts/layouts'
 
 import type { ReactNode } from 'react'
@@ -7,5 +8,9 @@ type Props = {
 }
 
 export const AppFlow = ({ children }: Props) => {
-  return <RootLayout>{children}</RootLayout>
+  return (
+    <AppProvider>
+      <RootLayout>{children}</RootLayout>
+    </AppProvider>
+  )
 }

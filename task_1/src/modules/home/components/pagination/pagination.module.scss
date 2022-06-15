@@ -1,4 +1,12 @@
 .wrapper {
   display: flex;
   gap: 5px;
+
+  button {
+    cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
 }

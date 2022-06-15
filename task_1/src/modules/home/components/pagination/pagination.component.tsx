@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import { useCallback } from 'react'
+import { useRouteChange } from 'src/app/contexts/contexts'
 import { keyInObject } from 'src/common/utils/utils'
 
 import Styles from './pagination.module.scss'
@@ -15,6 +16,9 @@ type Props = {
 
 export const Pagination = ({ paginationQueries }: Props) => {
   const router = useRouter()
+  const { status } = useRouteChange()
+
+  const routeIsChanging = status === 'pending'
 
   const handleClick = useCallback(
     (event: MouseEvent) => {
@@ -34,10 +38,14 @@ export const Pagination = ({ paginationQueries }: Props) => {
 
   return (
     <div className={Styles.wrapper}>
-      <button onClick={handleClick} disabled={!paginationQueries.previous}>
+      <button
+        onClick={handleClick}
+        disabled={!paginationQueries.previous || routeIsChanging}>
         previous
       </button>
-      <button onClick={handleClick} disabled={!paginationQueries.next}>
+      <button
+        onClick={handleClick}
+        disabled={!paginationQueries.next || routeIsChanging}>
         next
       </button>
     </div>

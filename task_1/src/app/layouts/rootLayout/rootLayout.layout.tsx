@@ -22,7 +22,7 @@ export const RootLayout = ({ children }: Props) => {
             <Link href={routes.home}>
               <a
                 className={Cn(Styles.link, {
-                  [Styles.activeLink]: routes.home === router.asPath,
+                  [Styles.activeLink]: router.asPath.startsWith(routes.home),
                 })}>
                 home page
               </a>
