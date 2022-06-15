@@ -30,5 +30,8 @@ export const useRefreshServerSide = () => {
     }
   }, [router, timeout, cleanup])
 
-  return [status, refreshServerSide] as const
+  return {
+    status,
+    refreshServerSide,
+  }
 }
