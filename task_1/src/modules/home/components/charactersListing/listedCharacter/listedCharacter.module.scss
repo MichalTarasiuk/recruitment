@@ -1,0 +1,17 @@
+.listedWrapper {
+  width: 60ch;
+  padding: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h2:hover {
+    text-decoration: underline;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}

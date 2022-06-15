@@ -1,5 +1,10 @@
 export { camelCaseObject } from './camelCaseObject.utility'
-export { entries, fromEntries, mapObject } from './safeObject.utils'
 export { isString } from './type.utils'
 export { fetcher } from './fetcher.utility'
 export { getSearchParam } from './getQueryValue'
+export {
+  entries,
+  fromEntries,
+  mapObject,
+  keyInObject,
+} from './safeObject.utils'

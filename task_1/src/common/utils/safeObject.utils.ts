@@ -21,3 +21,8 @@ export const mapObject = <TObject extends Record<PropertyKey, unknown>>(
     value: TObject[keyof TObject]
   ) => readonly [keyof TObject, TObject[keyof TObject]]
 ) => fromEntries(entries(obj).map(([key, value]) => fn(key, value)))
+
+export const keyInObject = <TObject extends PlainObject>(
+  object: TObject,
+  key: PropertyKey
+): key is keyof TObject => key in object

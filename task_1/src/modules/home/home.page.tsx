@@ -11,11 +11,12 @@ import type {
 
 export const HomePage = ({
   characters,
+  paginationQueries,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div className={Styles.wrapper}>
       <CharacterListing characters={characters} />
-      <Pagination />
+      <Pagination paginationQueries={paginationQueries} />
     </div>
   )
 }
