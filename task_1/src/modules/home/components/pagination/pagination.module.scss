@@ -4,6 +4,12 @@
 
   button {
     cursor: pointer;
+    background-color: rgba(240, 240, 240, 0.26);
+    background-color: rgba(240, 240, 240, 0.26);
+    border: 1px solid #dfdfdf;
+    border-radius: 16px;
+    color: #000000;
+    padding: 10px;
 
     &:disabled {
       cursor: not-allowed;

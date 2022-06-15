@@ -1,6 +1,8 @@
 import { fetchCharacter } from 'src/common/services/services'
 import { isString } from 'src/common/utils/utils'
 
+import Styles from './detailedCharacter.module.scss'
+
 import type {
   InferGetServerSidePropsType,
   GetServerSidePropsContext,
@@ -8,8 +10,12 @@ import type {
 
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>
 
-export const DetailedCharacterPage = ({}: Props) => {
-  return null
+export const DetailedCharacterPage = (character: Props) => {
+  return (
+    <div className={Styles.wrapper}>
+      <button>add to favorite</button>
+    </div>
+  )
 }
 
 export const getServerSideProps = async ({
