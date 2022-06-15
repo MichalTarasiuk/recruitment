@@ -17,11 +17,11 @@ code review - [project link](https://codesandbox.io/s/serverless-frost-h2t13).
 
 ## Part 2
 
-### Incessant rerenders after invoke startCounter
+### Infinite rerenders after invoke startCounter
 
-Hook `useEffect` executes after painting, which is caused by rerender (unless in `useLayoutEffect` we call `setState` which causes rerender in which case painting is postponed and `useEffect` is moved)
+Hook `useEffect` executes after painting, which is caused by rerender (unless in `useLayoutEffect` we call `setState` which causes rerender which causes that painting is postponed and `useEffect` is moved)
 
-The function `startCounter` causes a rerender, which results in the call to `useEffect`. In our case, the logic of `useEffect` is the next increment of the counter. As a result, we receive a lot of rerenders.
+The function `startCounter` causes a rerender, which results in the call to `useEffect`. In our case, the logic of `useEffect` invokes setCounter. As a result, we receive a lot of rerenders.
 
 <img src="./images/gifs/1.gif"  width="300">
 
