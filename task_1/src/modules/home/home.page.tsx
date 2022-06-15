@@ -39,6 +39,7 @@ export const getServerSideProps = async ({
         },
       }
     } else {
+      console.log('err')
       throw Error('Invalid page')
     }
   } catch {

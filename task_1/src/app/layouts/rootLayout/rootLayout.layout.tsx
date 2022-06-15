@@ -1,8 +1,4 @@
-import Cn from 'classnames'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { routes } from 'src/common/constants/constants'
-
+import { Navigation } from './components/components'
 import Styles from './rootLayout.module.scss'
 
 import type { ReactNode } from 'react'
@@ -12,33 +8,9 @@ type Props = {
 }
 
 export const RootLayout = ({ children }: Props) => {
-  const router = useRouter()
-
   return (
     <div className={Styles.wrapper}>
-      <nav className={Styles.navigation}>
-        <ul>
-          <li>
-            <Link href={routes.home}>
-              <a
-                className={Cn(Styles.link, {
-                  [Styles.activeLink]: routes.home === router.pathname,
-                })}>
-                home page
-              </a>
-            </Link>
-          </li>
-          <Link href={routes.favoriteCharacters}>
-            <a
-              className={Cn(Styles.link, {
-                [Styles.activeLink]:
-                  routes.favoriteCharacters === router.pathname,
-              })}>
-              favoritue characters
-            </a>
-          </Link>
-        </ul>
-      </nav>
+      <Navigation />
       <main>{children}</main>
     </div>
   )
