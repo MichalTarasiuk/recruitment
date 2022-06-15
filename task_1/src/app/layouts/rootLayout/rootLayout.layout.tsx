@@ -22,7 +22,7 @@ export const RootLayout = ({ children }: Props) => {
             <Link href={routes.home}>
               <a
                 className={Cn(Styles.link, {
-                  [Styles.activeLink]: router.asPath.startsWith(routes.home),
+                  [Styles.activeLink]: routes.home === router.pathname,
                 })}>
                 home page
               </a>
@@ -32,7 +32,7 @@ export const RootLayout = ({ children }: Props) => {
             <a
               className={Cn(Styles.link, {
                 [Styles.activeLink]:
-                  routes.favoriteCharacters === router.asPath,
+                  routes.favoriteCharacters === router.pathname,
               })}>
               favoritue characters
             </a>
