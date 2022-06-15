@@ -1,15 +1,23 @@
 import { fetchCharacters } from 'src/common/services/services'
 import { isString, mapObject, getSearchParam } from 'src/common/utils/utils'
 
+import { CharacterListing, Pagination } from './components/components'
+import Styles from './home.module.scss'
+
 import type {
   GetServerSidePropsContext,
   InferGetServerSidePropsType,
 } from 'next'
 
-export const HomePage = ({}: InferGetServerSidePropsType<
-  typeof getServerSideProps
->) => {
-  return null
+export const HomePage = ({
+  characters,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  return (
+    <div className={Styles.wrapper}>
+      <CharacterListing characters={characters} />
+      <Pagination />
+    </div>
+  )
 }
 
 export const getServerSideProps = async ({
@@ -21,8 +29,6 @@ export const getServerSideProps = async ({
   const paginationQueries = mapObject({ previous, next }, (key, value) =>
     value ? [key, getSearchParam(value, 'page')] : [key, value]
   )
-
-  console.log('call')
 
   return {
     props: {
