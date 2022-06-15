@@ -1,9 +1,4 @@
-import {
-  fetcher,
-  camelCaseObject,
-  compactArray,
-  mapObject,
-} from 'src/common/utils/utils'
+import { fetcher, camelCaseObject, compactArray } from 'src/common/utils/utils'
 
 import type { Character } from 'src/typings/types'
 
@@ -23,9 +18,9 @@ export const fetchCharacters = async (pageNumber: string) => {
   )
   const characters = results
     .map(camelCaseObject)
-    .map(({ url: href, ...character }) => ({
+    .map(({ url, ...character }) => ({
       ...character,
-      id: getIdByUrl(href),
+      id: getIdByUrl(url),
     }))
 
   return {
@@ -38,7 +33,10 @@ export const fetchCharacters = async (pageNumber: string) => {
 export const fetchCharacter = async (id: string) => {
   const character = await fetcher<Character>(`${BASE_URL}/people/${id}`)
 
-  return mapObject(camelCaseObject(character), (key, value) =>
-    key === 'url' ? [key, getIdByUrl(value)] : [key, value]
-  )
+  const { url, ...restCharacter } = character
+
+  return {
+    ...restCharacter,
+    id: getIdByUrl(url),
+  }
 }
