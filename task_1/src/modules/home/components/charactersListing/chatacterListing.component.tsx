@@ -1,4 +1,3 @@
-import { useCallback } from 'react'
 import { useFavoriteCharacters } from 'src/common/store/favoriteCharacters/favoriteCharacters.hook'
 
 import { ListedCharacter } from './listedCharacter/listedCharacter.component'
@@ -10,16 +9,7 @@ type Props = {
 }
 
 export const CharacterListing = ({ characters }: Props) => {
-  const { favoriteCharacters } = useFavoriteCharacters()
-
-  const isFavorite = useCallback(
-    (name: string) => {
-      return favoriteCharacters.some(
-        (favoriteCharacter) => favoriteCharacter.name === name
-      )
-    },
-    [favoriteCharacters]
-  )
+  const { isFavorite } = useFavoriteCharacters()
 
   return (
     <ul>
