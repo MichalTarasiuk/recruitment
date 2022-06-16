@@ -29,3 +29,7 @@ export const camelCaseToNormal = (value: string) =>
     .split(/(?=[A-Z])/)
     .map((word) => word.toLowerCase())
     .join(' ')
+
+export const last = <TArray extends ReadonlyArray<unknown>>(
+  array: TArray
+): TArray[number] => array[array.length - 1]

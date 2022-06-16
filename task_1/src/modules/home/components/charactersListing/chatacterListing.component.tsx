@@ -14,11 +14,12 @@ export const CharacterListing = ({ characters }: Props) => {
   return (
     <ul>
       {characters.map((character) => (
-        <ListedCharacter
-          key={character.id}
-          character={character}
-          isFavorite={isFavorite(character.name)}
-        />
+        <li key={character.id}>
+          <ListedCharacter
+            character={character}
+            isFavorite={isFavorite(character.name)}
+          />
+        </li>
       ))}
     </ul>
   )

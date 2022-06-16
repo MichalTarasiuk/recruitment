@@ -1,11 +1,6 @@
-import {
-  fetcher,
-  camelCaseObject,
-  compactArray,
-  pick,
-} from 'src/common/utils/utils'
+import { fetcher, camelCaseObject, pick } from 'src/common/utils/utils'
 
-import { BASE_URL, characterKeysToPick } from './services.helpers'
+import { BASE_URL, characterKeysToPick, getIdByUrl } from './services.helpers'
 
 import type { Character } from 'src/common/typings/types'
 
@@ -14,8 +9,6 @@ type FetchCharactersData = {
   readonly next: string | null
   readonly previous: string | null
 }
-
-const getIdByUrl = (url: string) => compactArray(url.split('/')).pop()!
 
 export const fetchCharacters = async (pageNumber: string) => {
   const { previous, next, results } = await fetcher<FetchCharactersData>(
