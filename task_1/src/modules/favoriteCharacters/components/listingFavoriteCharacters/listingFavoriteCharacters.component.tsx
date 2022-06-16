@@ -2,7 +2,7 @@ import { useFavoriteCharacters } from 'src/common/store/favoriteCharacters/favor
 
 import Styles from './listingFavoriteCharacters.module.scss'
 
-import type { FormatedCharacter } from 'src/typings/types'
+import type { FormatedCharacter } from 'src/common/typings/types'
 
 export const ListingFavoriteCharacters = () => {
   const { favoriteCharacters } = useFavoriteCharacters()

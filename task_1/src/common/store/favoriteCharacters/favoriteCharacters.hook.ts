@@ -7,7 +7,7 @@ import {
 } from './favoriteCharacters.slice'
 
 import type { RootState } from '../store'
-import type { FormatedCharacter } from 'src/typings/types'
+import type { FormatedCharacter } from 'src/common/typings/types'
 
 export const useFavoriteCharacters = () => {
   const favoriteCharacters = useSelector(

@@ -5,7 +5,7 @@ import { useFavoriteCharacters } from 'src/common/store/favoriteCharacters/favor
 import Styles from './listedCharacter.module.scss'
 
 import type { MouseEventHandler } from 'react'
-import type { FormatedCharacter } from 'src/typings/types'
+import type { FormatedCharacter } from 'src/common/typings/types'
 
 type Props = {
   readonly character: FormatedCharacter

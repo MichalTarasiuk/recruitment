@@ -2,7 +2,7 @@ import { useFavoriteCharacters } from 'src/common/store/favoriteCharacters/favor
 
 import { ListedCharacter } from './listedCharacter/listedCharacter.component'
 
-import type { FormatedCharacter } from 'src/typings/types'
+import type { FormatedCharacter } from 'src/common/typings/types'
 
 type Props = {
   readonly characters: readonly FormatedCharacter[]

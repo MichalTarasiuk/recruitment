@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { FormatedCharacter } from 'src/typings/types'
+import type { FormatedCharacter } from 'src/common/typings/types'
 
 const initialState: readonly FormatedCharacter[] = []
 

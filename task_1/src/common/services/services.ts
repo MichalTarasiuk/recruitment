@@ -7,7 +7,7 @@ import {
 
 import { BASE_URL, characterKeysToPick } from './services.helpers'
 
-import type { Character } from 'src/typings/types'
+import type { Character } from 'src/common/typings/types'
 
 type FetchCharactersData = {
   readonly results: readonly Character[]
