@@ -5,9 +5,9 @@ import {
   pick,
 } from 'src/common/utils/utils'
 
-import type { Character } from 'src/typings/types'
+import { BASE_URL, characterKeys } from './services.helpers'
 
-const BASE_URL = 'https://swapi.dev/api'
+import type { Character } from 'src/typings/types'
 
 type FetchCharactersData = {
   readonly results: readonly Character[]
@@ -37,14 +37,7 @@ export const fetchCharacters = async (pageNumber: string) => {
 
 export const fetchCharacter = async (id: string) => {
   const character = await fetcher<Character>(`${BASE_URL}/people/${id}`)
-  const formatedCharacter = pick(camelCaseObject(character), [
-    'name',
-    'height',
-    'mass',
-    'hairColor',
-    'skinColor',
-    'url',
-  ])
+  const formatedCharacter = pick(camelCaseObject(character), characterKeys)
 
   const { url, ...restCharacter } = formatedCharacter
 
