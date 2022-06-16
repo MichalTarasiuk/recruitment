@@ -14,7 +14,7 @@ const favoriteCharactersSlice = createSlice({
       state.push(action.payload)
     },
     removeByName(state, action: PayloadAction<string>) {
-      state = state.filter((character) => character.name !== action.payload)
+      return state.filter((character) => character.name !== action.payload)
     },
   },
 })

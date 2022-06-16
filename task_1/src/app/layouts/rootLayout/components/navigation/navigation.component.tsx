@@ -27,7 +27,7 @@ export const Navigation = () => {
               [Styles.activeLink]:
                 routes.favoriteCharacters === router.pathname,
             })}>
-            favourite characters
+            favorite characters
           </a>
         </Link>
       </ul>
