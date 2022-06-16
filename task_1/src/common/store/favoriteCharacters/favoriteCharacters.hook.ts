@@ -15,7 +15,7 @@ export const useFavoriteCharacters = () => {
   )
   const dispatch = useDispatch()
 
-  const addFavoriteCharacters = useCallback(
+  const addFavoriteCharacter = useCallback(
     (character: FormatedCharacter) => {
       dispatch(addFavoriteCharactersImpl(character))
     },
@@ -31,7 +31,7 @@ export const useFavoriteCharacters = () => {
 
   return {
     favoriteCharacters,
-    addFavoriteCharacters,
+    addFavoriteCharacter,
     removeFavoriteCharacter,
   }
 }

@@ -13,15 +13,15 @@ type Props = {
 }
 
 export const ListedCharacter = ({ character, isFavorite }: Props) => {
-  const { addFavoriteCharacters } = useFavoriteCharacters()
+  const { addFavoriteCharacter } = useFavoriteCharacters()
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = useCallback(
     (event) => {
       event.stopPropagation()
 
-      addFavoriteCharacters(character)
+      addFavoriteCharacter(character)
     },
-    [character, addFavoriteCharacters]
+    [character, addFavoriteCharacter]
   )
 
   return (

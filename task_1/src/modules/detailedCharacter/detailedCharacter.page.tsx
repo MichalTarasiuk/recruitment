@@ -10,7 +10,7 @@ import type { GetServerSidePropsContext } from 'next'
 type Props = InferServerPropsType<typeof getServerSideProps>
 
 export const DetailedCharacterPage = ({ character }: Props) => {
-  const { favoriteCharacters, addFavoriteCharacters } = useFavoriteCharacters()
+  const { favoriteCharacters, addFavoriteCharacter } = useFavoriteCharacters()
   const isFavorite = useMemo(
     () =>
       favoriteCharacters.some(
@@ -22,8 +22,8 @@ export const DetailedCharacterPage = ({ character }: Props) => {
   )
 
   const handleFavorite = useCallback(() => {
-    addFavoriteCharacters(character)
-  }, [character, addFavoriteCharacters])
+    addFavoriteCharacter(character)
+  }, [character, addFavoriteCharacter])
 
   return (
     <div className={Styles.wrapper}>
