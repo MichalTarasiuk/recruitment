@@ -31,7 +31,7 @@ export const DetailedCharacterPage = ({ character }: Props) => {
         {entries(character).map(([key, value]) => {
           return (
             <li key={key}>
-              {camelCaseToNormal(key)}: {value}
+              <span>{camelCaseToNormal(key)}</span>: {value}
             </li>
           )
         })}
