@@ -12,7 +12,7 @@ type CamelCaseObject<TObject extends PlainObject> = {
     : Key]: TObject[Key]
 }
 
-export type AddKey<
+type AddKey<
   TObject extends PlainObject,
   TKey extends PropertyKey,
   TValue extends unknown

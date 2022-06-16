@@ -1,5 +1,3 @@
-import type { AddKey, CamelCaseObject } from './global'
-
 export type Character = {
   readonly name: string
   readonly height: string

@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router'
-// @ts-ignore
 import NProgress, { start, done } from 'nprogress'
 import { useRef } from 'react'
 import { useMount } from 'src/common/hooks/hooks'
