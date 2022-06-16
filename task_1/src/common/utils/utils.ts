@@ -14,7 +14,9 @@ export const uppercaseFirst = (value: string) =>
 
 export const compactArray = <TArray extends ReadonlyArray<unknown>>(
   array: TArray
-) => array.filter(Boolean) as unknown as TArray
+) =>
+  // eslint-disable-next-line functional/prefer-readonly-type -- allow mutating array
+  array.filter(Boolean) as unknown as Exclude<TArray[number], Nill>[]
 
 export const getSearchParam = (url: string, key: string) => {
   const urlSearchParams = new URLSearchParams(url.split('?')[1])

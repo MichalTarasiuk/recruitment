@@ -31,3 +31,5 @@ type InferServerPropsType<T extends (...args: any) => any> = PromiseValue<
   : never
 
 type Noop = () => void
+
+type Nill = null | undefined
