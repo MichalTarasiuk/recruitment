@@ -5,7 +5,7 @@ import {
   pick,
 } from 'src/common/utils/utils'
 
-import { BASE_URL, characterKeys } from './services.helpers'
+import { BASE_URL, characterKeysToPick } from './services.helpers'
 
 import type { Character } from 'src/typings/types'
 
@@ -37,7 +37,10 @@ export const fetchCharacters = async (pageNumber: string) => {
 
 export const fetchCharacter = async (id: string) => {
   const character = await fetcher<Character>(`${BASE_URL}/people/${id}`)
-  const formatedCharacter = pick(camelCaseObject(character), characterKeys)
+  const formatedCharacter = pick(
+    camelCaseObject(character),
+    characterKeysToPick
+  )
 
   const { url, ...restCharacter } = formatedCharacter
 
