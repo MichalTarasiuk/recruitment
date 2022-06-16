@@ -1,4 +1,9 @@
-import { fetcher, camelCaseObject, compactArray } from 'src/common/utils/utils'
+import {
+  fetcher,
+  camelCaseObject,
+  compactArray,
+  pick,
+} from 'src/common/utils/utils'
 
 import type { Character } from 'src/typings/types'
 
@@ -32,8 +37,16 @@ export const fetchCharacters = async (pageNumber: string) => {
 
 export const fetchCharacter = async (id: string) => {
   const character = await fetcher<Character>(`${BASE_URL}/people/${id}`)
+  const formatedCharacter = pick(camelCaseObject(character), [
+    'name',
+    'height',
+    'mass',
+    'hairColor',
+    'skinColor',
+    'url',
+  ])
 
-  const { url, ...restCharacter } = character
+  const { url, ...restCharacter } = formatedCharacter
 
   return {
     ...restCharacter,

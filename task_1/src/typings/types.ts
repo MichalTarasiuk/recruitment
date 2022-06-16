@@ -7,6 +7,7 @@ export type Character = {
   readonly url: string
 }
 
-export type FormatedCharacter = CamelCaseObject<
-  AddKey<Omit<Character, 'id'>, 'id', string>
+export type FormatedCharacter = Omit<
+  CamelCaseObject<AddKey<Omit<Character, 'id'>, 'id', string>>,
+  'url'
 >

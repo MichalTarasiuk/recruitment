@@ -4,15 +4,11 @@ import { isString, mapObject, getSearchParam } from 'src/common/utils/utils'
 import { CharacterListing, Pagination } from './components/components'
 import Styles from './home.module.scss'
 
-import type {
-  GetServerSidePropsContext,
-  InferGetServerSidePropsType,
-} from 'next'
+import type { GetServerSidePropsContext } from 'next'
 
-export const HomePage = ({
-  characters,
-  paginationQueries,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+type Props = InferServerPropsType<typeof getServerSideProps>
+
+export const HomePage = ({ characters, paginationQueries }: Props) => {
   return (
     <div className={Styles.wrapper}>
       <CharacterListing characters={characters} />
@@ -38,7 +34,9 @@ export const getServerSideProps = async ({
         paginationQueries,
       },
     }
-  } catch {
+  } catch (error) {
+    console.log(error)
+
     return { notFound: true }
   }
 }

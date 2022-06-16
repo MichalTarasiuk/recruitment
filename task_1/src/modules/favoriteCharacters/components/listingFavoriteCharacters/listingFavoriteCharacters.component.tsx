@@ -8,9 +8,11 @@ export const ListingFavoriteCharacters = () => {
   const { favoriteCharacters } = useFavoriteCharacters()
   const isEmpty = favoriteCharacters.length === 0
 
-  return isEmpty ? (
-    <h2 className={Styles.heading}>list is empty</h2>
-  ) : (
+  if (isEmpty) {
+    return <h2 className={Styles.heading}>list is empty</h2>
+  }
+
+  return (
     <ul className={Styles.list}>
       {favoriteCharacters.map((character) => (
         <li key={character.id}>

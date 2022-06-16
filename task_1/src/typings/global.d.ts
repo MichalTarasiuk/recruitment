@@ -17,3 +17,15 @@ type AddKey<
   TKey extends PropertyKey,
   TValue extends unknown
 > = TObject & Record<TKey, TValue>
+
+type PromiseValue<T> = T extends PromiseLike<infer R> ? R : T
+
+type InferServerPropsType<T extends (...args: any) => any> = PromiseValue<
+  ReturnType<T>
+> extends infer Temp
+  ? Temp extends {
+      readonly props: infer P
+    }
+    ? P
+    : never
+  : never

@@ -6,6 +6,7 @@ export {
   fromEntries,
   mapObject,
   keyInObject,
+  pick,
 } from './safeObject.utils'
 
 export const uppercaseFirst = (value: string) =>

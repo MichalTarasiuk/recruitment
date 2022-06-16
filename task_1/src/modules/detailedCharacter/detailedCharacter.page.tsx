@@ -1,19 +1,42 @@
+import { useMemo, useCallback } from 'react'
 import { fetchCharacter } from 'src/common/services/services'
-import { isString } from 'src/common/utils/utils'
+import { useFavoriteCharacters } from 'src/common/store/favoriteCharacters/favoriteCharacters.hook'
+import { isString, entries } from 'src/common/utils/utils'
 
 import Styles from './detailedCharacter.module.scss'
 
-import type {
-  InferGetServerSidePropsType,
-  GetServerSidePropsContext,
-} from 'next'
+import type { GetServerSidePropsContext } from 'next'
 
-type Props = InferGetServerSidePropsType<typeof getServerSideProps>
+type Props = InferServerPropsType<typeof getServerSideProps>
 
-export const DetailedCharacterPage = (character: Props) => {
+export const DetailedCharacterPage = ({ character }: Props) => {
+  const { favoriteCharacters, addFavoriteCharacters } = useFavoriteCharacters()
+  const isFavorite = useMemo(
+    () =>
+      favoriteCharacters.some(
+        (favoriteCharacter) => favoriteCharacter.id === character.id
+      ),
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- equality by primitive values is safty
+    [favoriteCharacters.length, character.id]
+  )
+
+  const handleFavorite = useCallback(() => {
+    addFavoriteCharacters(character)
+  }, [character, addFavoriteCharacters])
+
   return (
     <div className={Styles.wrapper}>
-      <button>add to favorite</button>
+      <ul>
+        {entries(character).map(([key, value]) => {
+          return (
+            <li key={key}>
+              {key}: {value}
+            </li>
+          )
+        })}
+      </ul>
+      {!isFavorite && <button onClick={handleFavorite}>add to favorite</button>}
     </div>
   )
 }
@@ -33,7 +56,9 @@ export const getServerSideProps = async ({
     } else {
       throw Error('Invalid character id')
     }
-  } catch {
+  } catch (error) {
+    console.error(error)
+
     return { notFound: true }
   }
 }
