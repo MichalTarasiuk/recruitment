@@ -1,1 +1,1 @@
-export { useMount } from './lifecycles.hooks'
+export { useMount, useBeforeFirstMount } from './lifecycles.hooks'
