@@ -10,15 +10,11 @@ import type { GetServerSidePropsContext } from 'next'
 type Props = InferServerPropsType<typeof getServerSideProps>
 
 export const DetailedCharacterPage = ({ character }: Props) => {
-  const { favoriteCharacters, addFavoriteCharacter } = useFavoriteCharacters()
-  const isFavorite = useMemo(
-    () =>
-      favoriteCharacters.some(
-        (favoriteCharacter) => favoriteCharacter.id === character.id
-      ),
+  const { isFavorite, addFavoriteCharacter } = useFavoriteCharacters()
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- equality by primitive values is safty
-    [favoriteCharacters.length, character.id]
+  const displayAddButton = useMemo(
+    () => !isFavorite(character.name),
+    [character.name, isFavorite]
   )
 
   const handleFavorite = useCallback(() => {
@@ -36,7 +32,9 @@ export const DetailedCharacterPage = ({ character }: Props) => {
           )
         })}
       </ul>
-      {!isFavorite && <button onClick={handleFavorite}>add to favorite</button>}
+      {displayAddButton && (
+        <button onClick={handleFavorite}>add to favorite</button>
+      )}
     </div>
   )
 }

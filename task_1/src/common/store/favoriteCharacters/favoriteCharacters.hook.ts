@@ -29,7 +29,18 @@ export const useFavoriteCharacters = () => {
     [dispatch]
   )
 
+  const isFavorite = useCallback(
+    (name: string) => {
+      return favoriteCharacters.some(
+        (favoriteCharacter) => favoriteCharacter.name === name
+      )
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- equality by primitive values is safty
+    [favoriteCharacters.length]
+  )
+
   return {
+    isFavorite,
     favoriteCharacters,
     addFavoriteCharacter,
     removeFavoriteCharacter,
