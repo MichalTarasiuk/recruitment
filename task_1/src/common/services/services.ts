@@ -13,7 +13,6 @@ type FetchCharactersData = {
 const getIdByUrl = (url: string) => compactArray(url.split('/')).pop()!
 
 export const fetchCharacters = async (pageNumber: string) => {
-  console.log(`${BASE_URL}/people/?page=${pageNumber}`)
   const { previous, next, results } = await fetcher<FetchCharactersData>(
     `${BASE_URL}/people/?page=${pageNumber}`
   )

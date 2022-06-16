@@ -1,4 +1,4 @@
-import type { AddKey } from './global'
+import type { AddKey, CamelCaseObject } from './global'
 
 export type Character = {
   readonly name: string
@@ -9,4 +9,6 @@ export type Character = {
   readonly url: string
 }
 
-export type FormatedCharacter = AddKey<Omit<Character, 'id'>, 'id', string>
+export type FormatedCharacter = CamelCaseObject<
+  AddKey<Omit<Character, 'id'>, 'id', string>
+>

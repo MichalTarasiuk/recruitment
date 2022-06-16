@@ -19,9 +19,9 @@ const favoriteCharactersSlice = createSlice({
   },
 })
 
-const { add: addFavoriteCharacters, removeByName: favoriteCharacters } =
+const { add: addFavoriteCharacters, removeByName: removeFavoriteCharacter } =
   favoriteCharactersSlice.actions
 
 const reducer = favoriteCharactersSlice.reducer
 
-export { addFavoriteCharacters, favoriteCharacters, reducer }
+export { addFavoriteCharacters, removeFavoriteCharacter, reducer }
