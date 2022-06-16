@@ -23,3 +23,9 @@ export const getSearchParam = (url: string, key: string) => {
 
   return urlSearchParams.get(key)
 }
+
+export const camelCaseToNormal = (value: string) =>
+  value
+    .split(/(?=[A-Z])/)
+    .map((word) => word.toLowerCase())
+    .join(' ')

@@ -1,7 +1,7 @@
 import { useMemo, useCallback } from 'react'
 import { fetchCharacter } from 'src/common/services/services'
 import { useFavoriteCharacters } from 'src/common/store/favoriteCharacters/favoriteCharacters.hook'
-import { isString, entries } from 'src/common/utils/utils'
+import { isString, entries, camelCaseToNormal } from 'src/common/utils/utils'
 
 import Styles from './detailedCharacter.module.scss'
 
@@ -31,7 +31,7 @@ export const DetailedCharacterPage = ({ character }: Props) => {
         {entries(character).map(([key, value]) => {
           return (
             <li key={key}>
-              {key}: {value}
+              {camelCaseToNormal(key)}: {value}
             </li>
           )
         })}
